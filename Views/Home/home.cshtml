@@ -1,0 +1,71 @@
+@model List<Happening>
+        <h1>Create an Activity</h1>
+        <h3>Welcome @ViewBag.Username<span class="logoutlink"><a href="logout">Logout</a></span></h3>
+        <div class="content">
+            <table class="wedding_table">
+                <tr>
+                    <th>Activity</th>
+                    <th>Date and Time</th>
+                    <th>Duration</th>
+                    <th>Event Coordinator</th>
+                    <th>No. of Participants</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach(Happening w in @Model) 
+                {
+                    <tr>
+                        <td><a href="/details/@w.HappeningId">@w.Title</a></td>
+                        <td>@w.Date.ToString("MMM dd, yyyy")</td>
+                        <td>@w.Duration</td>
+                        <td>Coordinator</td>
+                        <td>@w.Attendee.Count</td>
+                            @if (@w.RegisterUserId == @ViewBag.idUser)
+                            {
+                                <td><a href="/delete/@w.HappeningId">Delete</a></td>
+                            }
+                            else if(@w.Attendee.Any(association => association.RegisterUserId == @ViewBag.idUser))
+                            {
+                                <td><a href="/unrsvp/@w.HappeningId">Un-Join</a></td>
+                            }
+                            else
+                            {
+                                <td><a href="/rsvp/@w.HappeningId">Join</a></td>
+                            }
+                    </tr>
+                }
+            </table>
+        
+        
+        <a id="link" href="/create">Add New Activity!</a>
+        </div>
+        
+        <style>
+        .content{
+            align-content: center;
+            height: 500px;
+            width: 100%;
+            border: 2px solid black;
+        }
+        .wedding_table{
+            margin-top: 50px;
+            margin-left: 80px;
+            align-content: center;
+            outline: 2px solid black;
+        }
+        .wedding_table td{
+            outline: 2px solid black;
+            width: 200px;
+            align-content: center;
+        }
+        .wedding_table tr{
+            width: 200px;
+            text-align: center;
+        }
+        .logoutlink{
+            font-size: 20px;
+            margin-left: 50%;
+        }
+        #link{
+        margin-left: 50%;
+        }
+        </style>

@@ -1,0 +1,42 @@
+<div class="container_all">
+        <div id="page" class="left">
+            <h1 class="display-4"><span class="green">Register</span></h1>
+            <h6><span class="green">Sign up to continue!</span></h6>
+                @model RegisterUser
+                <form asp-controller="Home" asp-action="register" method="post">
+                    <span class="error" asp-validation-for="FirstName"></span>
+                    <br>
+                    <input class="place_input" placeholder="First Name" type="text" asp-for="FirstName"><br>
+    
+                    <span class="error" asp-validation-for="LastName"></span>
+                    <br>
+                    <input class="place_input" placeholder="Last Name" type="text" asp-for="LastName"><br>
+                    
+                    <span class="error" asp-validation-for="Email"></span>
+                    <br>
+                    <input class="place_input" placeholder="Email" asp-for="Email"><br>
+                    <br>
+                    <span class="error" asp-validation-for="Password"></span>
+                    <input id="myInput" type="password" class="place_input" placeholder="Password" asp-for="Password">
+                    <br>
+                    <br>
+                    <span class="error" asp-validation-for="Confirm"></span>
+                    <input id="myInput" class="place_input" placeholder="Confirm Password" asp-for="Confirm"><br>
+                    <input type="checkbox" onclick="myFunction()"> <span class="green">Show Password</span><br>
+                    <br>
+    
+                    <script>
+                    function myFunction() {
+                        var x = document.getElementById("myInput");
+                        if (x.type === "password") {
+                            x.type = "text";
+                        } else {
+                            x.type = "password";
+                        }
+                        }
+                    </script>
+                    <button id="sub_btn" type="submit">
+                    <img id="power" src="images/power.png">
+                    </button>
+                </form>
+        </div>

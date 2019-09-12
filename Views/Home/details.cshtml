@@ -1,0 +1,51 @@
+@model Happening
+
+<h1>@Model.Title! <span class="links"><a asp-action="home">Home</a> | <a href="/logout">Log Out</a></span><h1></h1>
+
+
+<br>
+
+<h3>Date: @Model.Date.ToString("MMMM dd, yyyy")</h3>
+<br>
+
+<h3>Event Coordinator: </h3>
+<p>Sean</p>
+<br>
+
+<h3>Description:</h3>
+<p>@Model.Description</p>
+<br>
+
+<h3>Participants: </h3>
+@foreach(var w in Model.Attendee)
+    {
+        <p>@w.Creator.FirstName @w.Creator.LastName</p>
+
+    }
+    <br>
+
+    
+
+        
+        
+    
+    
+
+
+
+    
+ 
+
+
+
+
+
+
+
+<style>
+.links{
+    font-size: 20px;
+    margin-left: 50%;
+}
+
+</style>

@@ -1,0 +1,56 @@
+<h2>Create An Activity!</h2>
+<br>
+<div class="contents">
+    @model Happening
+    <form asp-controller="Home" asp-action="new" method="post">
+        <div class="leftside">
+            <span class="error" asp-validation-for="Title"></span>
+            <input class="place_input" placeholder="Title" type="text" asp-for="Title"><br>
+
+            <span class="error" asp-validation-for="Date"></span><br>
+            <input class="place_input" placeholder="Date" type="date" asp-for="Date"><br>
+        </div>
+        <div class="rightside">
+            <span class="error" asp-validation-for="Time"></span><br>        
+            <input class="place_input" placeholder="Time" type="text" asp-for="Time"><br>
+
+            <span class="error" asp-validation-for="Duration"></span><br>        
+            <input class="place_input" placeholder="Duration" type="text" asp-for="Duration"><br>
+
+            <select class="place_input" placeholder="Hours">
+            <option>Hours</option>
+            <option>Days</option><br>
+            </select>
+        </div>
+        <div class="bottom">
+            <span class="error" asp-validation-for="Description"></span><br>        
+            <input id="textarea" class="place_input" placeholder="Description" type="text" asp-for="Description"><br>
+            <br>
+            <button type="submit">Create an Activity!</button>
+        </div>
+    </form>
+</div>
+    
+
+<style>
+.leftside{
+    display: inline-block;
+    height: 100px;
+    width: 225px;
+    display: top;
+}
+.rightside{
+    display: inline-block;
+    height: 100px;
+    width: 225px;
+}
+.bottom{
+    width: 970;
+    height: 350px;
+}
+#textarea{
+    height: 200px;
+    width: 600px;
+    text-align: top;
+}
+</style>

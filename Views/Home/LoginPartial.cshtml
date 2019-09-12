@@ -1,0 +1,20 @@
+<div class="right">
+        <h1 class="display-4"><span class="green">Login</span></h1>
+        <h6><span class="green">Welcome back!</span></h6>
+        @model LoginUser
+        <form asp-controller="Home" asp-action="Login" method="post">
+            <span class="error" asp-validation-for="Email"></span>
+            <br>
+            <input class="place_input" placeholder="Email" asp-for="Email"><br>
+
+            <span class="error" asp-validation-for="Password"></span>
+            <br>
+            <input id="myInput" class="place_input" placeholder="Password" type="password" asp-for="Password"><br>
+        
+            <br>
+            <button id="sub_btn" type="submit">
+            <img id="power" src="images/power.png">
+            </button>
+    </form>
+    </div>
+</div>
